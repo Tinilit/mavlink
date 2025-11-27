@@ -26,6 +26,36 @@
     </enum>
     <!-- ardupilot specific MAV_CMD_* commands -->
     <enum name="MAV_CMD">
+    <entry value="31015" name="MAV_CMD_AUTH_KEY" hasLocation="false" isDestination="false">
+      <description>Authenticate the user with a key to allow parameter modifications for a limited time.</description>
+      <param index="1" label="Key">Authentication key (uint32 encoded as float)</param>
+      <param index="2">Empty</param>
+      <param index="3">Empty</param>
+      <param index="4">Empty</param>
+      <param index="5">Empty</param>
+      <param index="6">Empty</param>
+      <param index="7">Empty</param>
+    </entry>
+    <entry value="31016" name="MAV_CMD_TOGGLE_ARM_PERMISSION" hasLocation="false" isDestination="false">
+      <description>Authenticate the user with a key to toggle ARM permission (block/unblock arming).</description>
+      <param index="1" label="Key">Authentication key (uint32 encoded as four floats in params 1-4)</param>
+      <param index="2">Empty</param>
+      <param index="3">Empty</param>
+      <param index="4">Empty</param>
+      <param index="5">Empty</param>
+      <param index="6">Empty</param>
+      <param index="7">Empty</param>
+    </entry>
+    <entry value="31017" name="MAV_CMD_CAMERA_MOVE" hasLocation="false" isDestination="false">
+      <description>Control camera gimbal movement with yaw, pitch, and roll speed commands. Generates internal camera control protocol and forwards to serial port.</description>
+      <param index="1" label="Yaw Speed" units="speed_units">Yaw rotation speed (int16 cast to float). Positive values rotate right, negative rotate left.</param>
+      <param index="2" label="Pitch Speed" units="speed_units">Pitch rotation speed (int16 cast to float). Positive values tilt up, negative tilt down.</param>
+      <param index="3" label="Roll Speed" units="speed_units">Roll rotation speed (int16 cast to float). Positive values roll clockwise, negative counter-clockwise.</param>
+      <param index="4">Reserved for future use.</param>
+      <param index="5">Empty.</param>
+      <param index="6">Empty.</param>
+      <param index="7">Empty.</param>
+    </entry>
       <!-- 200 to 214 used by common.xml -->
       <entry value="215" name="MAV_CMD_DO_SET_RESUME_REPEAT_DIST" hasLocation="false" isDestination="false">
         <description>Set the distance to be repeated on mission resume</description>
@@ -1165,6 +1195,7 @@
       <entry value="2" name="OSD_PARAM_INVALID_PARAMETER_INDEX"/>
       <entry value="3" name="OSD_PARAM_INVALID_PARAMETER"/>
     </enum>
+
   </enums>
   <messages>
     <message id="150" name="SENSOR_OFFSETS">
